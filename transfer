@@ -1,0 +1,17 @@
+#!/bin/bash
+if [ -z $REMOTE_USER ]; then
+    read -p "Enter remote username: " REMOTE_USER
+fi
+
+if [ -z $REMOTE_IP ]; then
+    read -p "Enter remote username: " REMOTE_IP
+fi
+
+
+FILE=$1
+if [ $# -eq 0 ]; then
+    read -p "Provide the location of the file you wish to transfer: " FILE
+fi 
+
+scp $FILE $REMOTE_USER@$REMOTE_IP:/tmp 
+echo "File sucessfully copied"
